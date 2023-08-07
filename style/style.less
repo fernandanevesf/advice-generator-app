@@ -1,0 +1,131 @@
+//reset
+*, 
+*::before,
+*::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+//fonts
+@font-face {
+  font-display: swap;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/manrope-v14-latin-regular.woff2') format('woff2');
+  }
+  
+@font-face {
+  font-display: swap; 
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/manrope-v14-latin-800.woff2') format('woff2'); 
+  }
+
+//variables and mixins
+@light-cyan: hsl(193, 38%, 86%);
+@neon-green: hsl(150, 100%, 66%);
+@graish-blue: hsl(217, 19%, 38%);
+@dark-gray-blue: hsl(217, 19%, 24%);
+@dark-blue: hsl(218, 23%, 16%);
+
+.flex-mixin{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+//main styling
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  background-color: @dark-blue;
+  .flex-mixin();
+  }  
+
+main{
+  .flex-mixin();
+
+  @media screen and (min-width: 50rem){
+      height: 90vh;
+      justify-content: center;
+  }
+   
+}
+
+.light-blue-container{
+  background-color: @dark-gray-blue;
+  .flex-mixin();
+  margin: 8rem 1rem 1rem;
+  padding: 3rem 2rem 4rem;
+  border-radius: 8px;
+  max-width: 30rem;
+
+  @media screen and (min-width: 50rem){
+      margin: 0;
+    }
+}
+
+h1{
+  font-size: .8rem;
+  line-height: 0;
+  color: @neon-green;
+  text-transform: uppercase;
+  letter-spacing: .3rem;
+}
+
+blockquote{
+  font-size: 1.75rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: @light-cyan;
+}
+
+button{
+  background-color: @neon-green;
+  border: none;
+  padding: 1.1rem;
+  border-radius: 50%;
+  position: relative;
+  bottom: 3rem;
+
+  @media screen and (min-width: 50rem){
+      bottom: 2rem;
+    }
+
+  &:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 2.2rem @neon-green;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  }  
+
+.attribution-container{
+  display: flex;
+  padding: 0 0 1rem;
+  flex-grow: 1;
+  align-items: flex-end;
+
+  .attribution { 
+    font-size: .7rem; 
+    text-align: center; 
+    color: @light-cyan;
+    
+    a { 
+    color: @neon-green; 
+      }
+  }
+}
